@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CT Com Tech - Careers</title>
+    <link rel="stylesheet" href="../index/style.css">
+    <link rel="stylesheet" href="career.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="../index/index.html">
+                    <img src="../img/CT Com Tech Logo.svg" alt="Home Logo">
+                    <span>CT Com Tech</span>
+                </a>
+            </div>
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="../index/index.html">Home</a></li>
+                    <li><a href="../about/about.html">About Us</a></li>
+                    <li><a href="../solutions/solutions.html">Solutions</a></li>
+                    <li><a href="../products/products.html">Products</a></li>
+                    <li><a href="career.html" class="active">Career</a></li>
+                    <li><a href="../contact/contact.html" class="contact-btn">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="career-hero">
+        <div class="container">
+            <div class="career-hero-content">
+                <h1>Join Our Team</h1>
+                <p>Build the future of IoT technology with us</p>
+            </div>
+        </div>
+        <div class="career-hero-bg"></div>
+    </section>
+
+    <!-- Why Join Us Section -->
+    <section class="why-join-us">
+        <div class="container">
+            <div class="section-header centered">
+                <h2>Why <span>Join Us</span></h2>
+                <p>Be part of a team that's changing how the world connects</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card" data-animate="fade">
+                    <div class="benefit-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Innovation Culture</h3>
+                    <p>Work on cutting-edge IoT projects that push technological boundaries and solve real-world challenges.</p>
+                </div>
+
+                <div class="benefit-card" data-animate="fade">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Growth Opportunities</h3>
+                    <p>Continuous learning, career advancement, and professional development programs to help you thrive.</p>
+                </div>
+
+                <div class="benefit-card" data-animate="fade">
+                    <div class="benefit-icon">
+                        <i class="fas fa-globe-asia"></i>
+                    </div>
+                    <h3>Global Impact</h3>
+                    <p>Our solutions are deployed worldwide, allowing you to make a difference on an international scale.</p>
+                </div>
+
+                <div class="benefit-card" data-animate="fade">
+                    <div class="benefit-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Collaborative Environment</h3>
+                    <p>Work alongside industry experts in a supportive, team-oriented atmosphere that values diverse perspectives.</p>
+                </div>
+
+                <div class="benefit-card" data-animate="fade">
+                    <div class="benefit-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Work-Life Balance</h3>
+                    <p>Flexible work arrangements, generous leave policies, and a culture that respects your personal time.</p>
+                </div>
+
+                <div class="benefit-card" data-animate="fade">
+                    <div class="benefit-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3>Competitive Package</h3>
+                    <p>Attractive compensation, comprehensive benefits, and performance-based incentives that reward excellence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Open Positions Section -->
+    <section class="open-positions">
+        <div class="container">
+            <div class="section-header centered">
+                <h2>Open <span>Positions</span></h2>
+                <p>Explore opportunities to join our team</p>
+            </div>
+
+            <div class="job-filters">
+                <div class="filter-group">
+                    <label for="department-filter">Department</label>
+                    <select id="department-filter">
+                        <option value="all">All Departments</option>
+                        <option value="engineering">Engineering</option>
+                        <option value="product">Product</option>
+                        <option value="data">Data Science</option>
+                        <option value="design">Design</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="location-filter">Location</label>
+                    <select id="location-filter">
+                        <option value="all">All Locations</option>
+                        <option value="hongkong">Hong Kong</option>
+                        <option value="singapore">Singapore</option>
+                        <option value="remote">Remote</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="job-listings">
+                <!-- IoT Solutions Architect -->
+                <div class="job-card" data-department="engineering" data-location="hongkong" data-animate="up">
+                    <div class="job-header">
+                        <div class="job-title">
+                            <h3>IoT Solutions Architect</h3>
+                            <div class="job-tags">
+                                <span class="tag">Engineering</span>
+                                <span class="tag">Full-time</span>
+                                <span class="tag">Hong Kong</span>
+                            </div>
+                        </div>
+                        <div class="job-action">
+                            <button class="toggle-details">View Details</button>
+                        </div>
+                    </div>
+                    <div class="job-details">
+                        <div class="details-grid">
+                            <div class="detail-item">
+                                <div class="detail-icon"><i class="fas fa-clock"></i></div>
+                                <div class="detail-content">
+                                    <h4>Work Hours</h4>
+                                    <p>40 hours/week, flexible schedule</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-icon"><i class="fas fa-map-marker-alt"></i></div>
+                                <div class="detail-content">
+                                    <h4>Location</h4>
+                                    <p>Hong Kong (Hybrid - 3 days in office)</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-icon"><i class="fas fa-wallet"></i></div>
+                                <div class="detail-content">
+                                    <h4>Allowances</h4>
+                                    <p>Transportation, Meal, Technology</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-icon"><i class="fas fa-umbrella-beach"></i></div>
+                                <div class="detail-content">
+                                    <h4>Leave Benefits</h4>
+                                    <p>21 days annual, 14 days medical, 5 days personal</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="job-description">
+                            <div class="description-section">
+                                <h4>Job Scope</h4>
+                                <p>As an IoT Solutions Architect, you will design and implement end-to-end IoT architectures for clients across various industries. You'll collaborate with cross-functional teams to translate business requirements into technical solutions, ensuring scalability, security, and performance.</p>
+                            </div>
+                            
+                            <div class="description-section">
+                                <h4>Key Responsibilities</h4>
+                                <ul>
+                                    <li>Design comprehensive IoT architectures including device connectivity, data processing, and application layers</li>
+                                    <li>Lead technical implementation and integration of IoT systems with client infrastructure</li>
+                                    <li>Develop proof-of-concepts and technical documentation</li>
+                                    <li>Provide technical leadership and mentoring to junior team members</li>
+                                    <li>Evaluate new technologies and recommend innovations to enhance our solutions</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="description-section">
+                                <h4>Requirements</h4>
+                                <ul>
+                                    <li>Bachelor's or Master's degree in Computer Science, Engineering, or related field</li>
+                                    <li>5+ years of experience in IoT solutions development or system architecture</li>
+                                    <li>Strong knowledge of cloud platforms (AWS, Azure, GCP)</li>
+                                    <li>Experience with IoT protocols (MQTT, CoAP, HTTP/REST)</li>
+                                    <li>Familiarity with edge computing, data analytics, and security best practices</li>
+                                    <li>Excellent communication and client-facing skills</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="job-apply">
+                            <a href="../contact/contact.html" class="btn-primary">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Scientist -->
+                <div class="job-card" data-department="data" data-location="singapore" data-animate="up">
+                    <div class="job-header">
+                        <div class="job-title">
+                            <h3>Data Scientist - IoT Analytics</h3>
+                            <div class="job-tags">
+                                <span class="tag">Data Science</span>
+                                <span class="tag">Full-time</span>
+                                <span class="tag">Singapore</span>
+                            </div>
+                        </div>
+                        <div class="job-action">
+                            <button class="toggle-details">View Details</button>
+                        </div>
+                    </div>
+                    <div class="job-details">
+                        <div class="details-grid">
+                            <div class="detail-item">
+                                <div class="detail-icon"><i class="fas fa-clock"></i></div>
+                                <div class="detail-content">
+                                    <h4>Work Hours</h4>
+                                    <p>40 hours/week, flexible schedule</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-icon"><i class="fas fa-map-marker-alt"></i></div>
+                                <div class="detail-content">
+                                    <h4>Location</h4>
+                                    <p>Singapore (Hybrid - 2 days in office)</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-icon"><i class="fas fa-wallet"></i></div>
+                                <div class="detail-content">
+                                    <h4>Allowances</h4>
+                                    <p>Technology, Professional Development</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-icon"><i class="fas fa-umbrella-beach"></i></div>
+                                <div class="detail-content">
+                                    <h4>Leave Benefits</h4>
+                                    <p>18 days annual, 14 days medical, 3 days compassionate</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="job-description">
+                            <div class="description-section">
+                                <h4>Job Scope</h4>
+                                <p>As a Data Scientist specializing in IoT Analytics, you will develop advanced analytics models to extract insights from large-scale IoT data. You'll work closely with clients and engineering teams to implement predictive models that drive business value and operational efficiency.</p>
+                            </div>
+                            
+                            <div class="description-section">
+                                <h4>Key Responsibilities</h4>
+                                <ul>
+                                    <li>Develop machine learning and statistical models for IoT data analysis</li>
+                                    <li>Create data pipelines for processing streaming and batch IoT data</li>
+                                    <li>Design and implement anomaly detection and predictive maintenance algorithms</li>
+                                    <li>Collaborate with visualization specialists to create insightful dashboards</li>
+                                    <li>Present data-driven insights and recommendations to stakeholders</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="description-section">
+                                <h4>Requirements</h4>
+                                <ul>
+                                    <li>Master's or PhD in Computer Science, Data Science, Statistics, or related field</li>
+                                    <li>3+ years of experience in data science or machine learning</li>
+                                    <li>Strong programming skills in Python, R, or similar</li>
+                                    <li>Experience with big data technologies (Spark, Hadoop, Kafka)</li>
+                                    <li>Knowledge of time-series analysis and machine learning algorithms</li>
+                                    <li>Understanding of IoT systems and sensor data is a plus</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="job-apply">
+                            <a href="../contact/contact.html" class="btn-primary">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Manager -->
+                <div class="job-card" data-department="product" data-location="hongkong" data-animate="up">
+                    <div class="job-header">
+                        <div class="job-title">
+                            <h3>Senior Product Manager - FinTech Solutions</h3>
+                            <div class="job-tags">
+                                <span class="tag">Product</span>
+                                <span class="tag">Full-time</span>
+                                <span class="tag">Hong Kong</span>
+                            </div>
+                        </div>
+                        <div class="job-action">
+                            <button class="toggle-details">View Details</button>
+                        </div>
+                    </div>
+                    <div class="job-details">
+                        <div class="details-grid">
+                            <div class="detail-item">
+                                <div class="detail-icon"><i class="fas fa-clock"></i></div>
+                                <div class="detail-content">
+                                    <h4>Work Hours</h4>
+                                    <p>40 hours/week, standard business hours</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-icon"><i class="fas fa-map-marker-alt"></i></div>
+                                <div class="detail-content">
+                                    <h4>Location</h4>
+                                    <p>Hong Kong (In-office with occasional WFH)</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-icon"><i class="fas fa-wallet"></i></div>
+                                <div class="detail-content">
+                                    <h4>Allowances</h4>
+                                    <p>Transportation, Professional Development, Healthcare</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-icon"><i class="fas fa-umbrella-beach"></i></div>
+                                <div class="detail-content">
+                                    <h4>Leave Benefits</h4>
+                                    <p>22 days annual, 14 days medical, parental leave</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="job-description">
+                            <div class="description-section">
+                                <h4>Job Scope</h4>
+                                <p>As a Senior Product Manager for our FinTech Solutions division, you will oversee the development and go-to-market strategy for our financial services IoT products. You'll collaborate with engineering, design, and business teams to deliver innovative solutions that meet regulatory requirements and client needs.</p>
+                            </div>
+                            
+                            <div class="description-section">
+                                <h4>Key Responsibilities</h4>
+                                <ul>
+                                    <li>Define product vision, strategy, and roadmap for FinTech IoT solutions</li>
+                                    <li>Gather and prioritize requirements based on market research and client feedback</li>
+                                    <li>Collaborate with engineering teams throughout the development lifecycle</li>
+                                    <li>Work with sales and marketing to develop effective go-to-market strategies</li>
+                                    <li>Monitor product performance and make data-driven decisions for improvements</li>
+                                    <li>Stay updated on FinTech industry trends and regulatory changes</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="description-section">
+                                <h4>Requirements</h4>
+                                <ul>
+                                    <li>Bachelor's degree in Business, Engineering, Computer Science, or related field</li>
+                                    <li>5+ years of product management experience, preferably in FinTech or IoT</li>
+                                    <li>Strong understanding of financial services industry and regulations</li>
+                                    <li>Experience with agile development methodologies</li>
+                                    <li>Excellent analytical, communication, and leadership skills</li>
+                                    <li>MBA or financial certification (CFA, FRM) is a plus</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="job-apply">
+                            <a href="../contact/contact.html" class="btn-primary">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UX/UI Designer -->
+                <div class="job-card" data-department="design" data-location="remote" data-animate="up">
+                    <div class="job-header">
+                        <div class="job-title">
+                            <h3>UX/UI Designer - IoT Interfaces</h3>
+                            <div class="job-tags">
+                                <span class="tag">Design</span>
+                                <span class="tag">Full-time</span>
+                                <span class="tag">Remote</span>
+                            </div>
+                        </div>
+                        <div class="job-action">
+                            <button class="toggle-details">View Details</button>
+                        </div>
+                    </div>
+                    <div class="job-details">
+                        <div class="details-grid">
+                            <div class="detail-item">
+                                <div class="detail-icon"><i class="fas fa-clock"></i></div>
+                                <div class="detail-content">
+                                    <h4>Work Hours</h4>
+                                    <p>40 hours/week, flexible schedule</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-icon"><i class="fas fa-map-marker-alt"></i></div>
+                                <div class="detail-content">
+                                    <h4>Location</h4>
+                                    <p>Fully Remote (Asia-Pacific preferred)</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-icon"><i class="fas fa-wallet"></i></div>
+                                <div class="detail-content">
+                                    <h4>Allowances</h4>
+                                    <p>Home Office Setup, Technology, Coworking Space</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-icon"><i class="fas fa-umbrella-beach"></i></div>
+                                <div class="detail-content">
+                                    <h4>Leave Benefits</h4>
+                                    <p>20 days annual, 10 days medical, flexible time off</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="job-description">
+                            <div class="description-section">
+                                <h4>Job Scope</h4>
+                                <p>As a UX/UI Designer specializing in IoT interfaces, you will create intuitive and engaging user experiences for our IoT platforms and dashboards. You'll translate complex data and functionality into clean, accessible designs that help users efficiently manage and gain insights from connected devices.</p>
+                            </div>
+                            
+                            <div class="description-section">
+                                <h4>Key Responsibilities</h4>
+                                <ul>
+                                    <li>Design user interfaces for IoT dashboards, mobile apps, and web platforms</li>
+                                    <li>Create wireframes, prototypes, and high-fidelity mockups</li>
+                                    <li>Conduct user research and usability testing to inform design decisions</li>
+                                    <li>Collaborate with product managers and engineers to implement designs</li>
+                                    <li>Develop and maintain design systems for consistency across products</li>
+                                    <li>Optimize interfaces for various devices and screen sizes</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="description-section">
+                                <h4>Requirements</h4>
+                                <ul>
+                                    <li>Bachelor's degree in Design, HCI, or related field</li>
+                                    <li>3+ years of UX/UI design experience</li>
+                                    <li>Strong portfolio demonstrating data visualization and dashboard design</li>
+                                    <li>Proficiency with design tools (Figma, Sketch, Adobe XD)</li>
+                                    <li>Understanding of design principles and accessibility standards</li>
+                                    <li>Experience with IoT or data-intensive applications is preferred</li>
+                                    <li>Basic knowledge of HTML, CSS, and responsive design</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="job-apply">
+                            <a href="../contact/contact.html" class="btn-primary">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Don't see the right role?</h2>
+                <p>We're always looking for talented individuals. Send us your resume and we'll keep you in mind for future openings.</p>
+                <a href="../contact/contact.html" class="btn btn-primary">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <i class="fas fa-network-wired"></i>
+                        <span>CT Com Tech</span>
+                    </div>
+                    <p>Empowering businesses with intelligent IoT solutions that drive innovation and growth.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index/index.html">Home</a></li>
+                        <li><a href="../about/about.html">About Us</a></li>
+                        <li><a href="../solutions/solutions.html">Solutions</a></li>
+                        <li><a href="../products/products.html">Products</a></li>
+                        <li><a href="career.html">Career</a></li>
+                        <li><a href="../contact/contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-solutions">
+                    <h3>Solutions</h3>
+                    <ul>
+                        <li><a href="../solutions/solutions.html#fintech">FinTech</a></li>
+                        <li><a href="../solutions/solutions.html#healthcare">Healthcare</a></li>
+                        <li><a href="../solutions/solutions.html#industrial">Industrial</a></li>
+                        <li><a href="../solutions/solutions.html#supply-chain">Supply Chain</a></li>
+                        <li><a href="../solutions/solutions.html#agriculture">Agriculture</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 18/F Teng Fuh Commercial Building 333 Queen's Road Central Sheung Wan Hong Kong</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 CT Com Tech. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../index/script.js"></script>
+    <script src="career.js"></script>
+</body>
+</html>
