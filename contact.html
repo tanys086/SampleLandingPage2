@@ -115,15 +115,15 @@
                         </div>
 
                         <div class="captcha-container">
-                            <div class="captcha-message">
-                                CAPTCHA unavailable. Please refresh the page.
-                            </div>
-                            <button type="button" class="refresh-btn" onclick="refreshCaptcha()">Refresh</button>
+                            <div id="captcha-question" class="captcha-question">Loading question...</div>
+                            <button type="button" id="refresh-captcha" class="refresh-btn">
+                                <i class="fas fa-sync-alt"></i> Refresh
+                            </button>
                         </div>
 
                         <div class="form-group">
-                            <label for="answer">Your Answer <span class="required">*</span></label>
-                            <input type="text" id="answer" name="answer" required>
+                            <label for="captcha-answer">Your Answer <span class="required">*</span></label>
+                            <input type="number" id="captcha-answer" name="captcha-answer" required>
                         </div>
 
                         <button type="submit" class="btn-primary submit-btn">Send Message</button>
@@ -236,5 +236,6 @@
 
     <script src="js/script.js"></script>
     <script src="js/products.js"></script>
+    <script src="js/contact-form.js"></script>
 </body>
 </html>
