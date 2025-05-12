@@ -1,7 +1,4 @@
-// Career page specific JavaScript - Include after loading script.js
-
 document.addEventListener('DOMContentLoaded', function() {
-    // Animation on scroll
     const animatedElements = document.querySelectorAll('[data-animate]');
     
     function checkScroll() {
@@ -17,46 +14,37 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    
-    // Initial check
+
     checkScroll();
-    
-    // Check on scroll
+
     window.addEventListener('scroll', checkScroll);
-    
-    // Job listings toggle functionality
+
     const jobCards = document.querySelectorAll('.job-card');
     const toggleButtons = document.querySelectorAll('.toggle-details');
     
     toggleButtons.forEach((button, index) => {
         button.addEventListener('click', function() {
             const jobCard = jobCards[index];
-            
-            // If the clicked card is already active, close it
+
             if (jobCard.classList.contains('active')) {
                 jobCard.classList.remove('active');
                 button.textContent = 'View Details';
-                
-                // Scroll to the top of the card after closing
+
                 setTimeout(() => {
                     jobCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 }, 100);
             } else {
-                // Close any open job cards
                 jobCards.forEach(card => {
                     card.classList.remove('active');
                 });
                 
-                // Update all button text
                 toggleButtons.forEach(btn => {
                     btn.textContent = 'View Details';
                 });
-                
-                // Open the clicked card
+
                 jobCard.classList.add('active');
                 button.textContent = 'Hide Details';
-                
-                // Scroll to the top of the job details
+
                 setTimeout(() => {
                     jobCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 }, 100);
@@ -64,7 +52,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Job filtering functionality
     const departmentFilter = document.getElementById('department-filter');
     const locationFilter = document.getElementById('location-filter');
     
@@ -75,14 +62,12 @@ document.addEventListener('DOMContentLoaded', function() {
         jobCards.forEach(card => {
             const cardDepartment = card.getAttribute('data-department');
             const cardLocation = card.getAttribute('data-location');
-            
-            // Check if the card matches both filters or if the filter is set to "all"
+
             const matchesDepartment = selectedDepartment === 'all' || cardDepartment === selectedDepartment;
             const matchesLocation = selectedLocation === 'all' || cardLocation === selectedLocation;
             
             if (matchesDepartment && matchesLocation) {
                 card.style.display = 'block';
-                // Add a fade-in animation
                 card.style.opacity = '0';
                 setTimeout(() => {
                     card.style.opacity = '1';
@@ -90,16 +75,14 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 card.style.display = 'none';
             }
-            
-            // Close any expanded cards when filtering
+
             card.classList.remove('active');
             const button = card.querySelector('.toggle-details');
             if (button) {
                 button.textContent = 'View Details';
             }
         });
-        
-        // Check if there are any visible jobs
+
         checkNoResults();
     }
     
@@ -111,8 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 hasVisibleJobs = true;
             }
         });
-        
-        // Get or create the no results message element
+
         let noResultsEl = document.getElementById('no-jobs-message');
         if (!noResultsEl) {
             noResultsEl = document.createElement('div');
@@ -126,16 +108,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     <button id="reset-filters" class="btn-secondary">Reset Filters</button>
                 </div>
             `;
-            
-            // Add the element after the job listings
+
             const jobListings = document.querySelector('.job-listings');
             jobListings.parentNode.insertBefore(noResultsEl, jobListings.nextSibling);
-            
-            // Add event listener to the reset button
+
             document.getElementById('reset-filters').addEventListener('click', resetFilters);
         }
-        
-        // Show or hide the message based on whether there are visible jobs
+
         noResultsEl.style.display = hasVisibleJobs ? 'none' : 'block';
     }
     
@@ -144,14 +123,12 @@ document.addEventListener('DOMContentLoaded', function() {
         locationFilter.value = 'all';
         filterJobs();
     }
-    
-    // Add event listeners to filters
+
     if (departmentFilter && locationFilter) {
         departmentFilter.addEventListener('change', filterJobs);
         locationFilter.addEventListener('change', filterJobs);
     }
-    
-    // Add CSS for no results message
+
     const style = document.createElement('style');
     style.textContent = `
         .no-results {
@@ -206,6 +183,5 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(style);
     
-    // Initialize filter on page load
     filterJobs();
 });

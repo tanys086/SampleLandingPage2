@@ -4,13 +4,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const navbar = document.querySelector('.navbar');
     const links = document.querySelectorAll('.nav-links a');
 
-    // Mobile menu toggle
     hamburger.addEventListener('click', function() {
         navLinks.classList.toggle('active');
         hamburger.classList.toggle('active');
     });
 
-    // Close mobile menu when clicking on links
     links.forEach(link => {
         link.addEventListener('click', function() {
             navLinks.classList.remove('active');
@@ -18,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Change navbar on scroll
     window.addEventListener('scroll', function() {
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
@@ -27,7 +24,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Active link highlighting
     function setActiveLink() {
         const currentLocation = window.location.pathname;
         
@@ -43,10 +39,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Initial call to set active link
     setActiveLink();
 
-    // Add subtle animations to the navbar elements
     function addEntranceAnimations() {
         const logo = document.querySelector('.logo');
         
@@ -58,14 +52,12 @@ document.addEventListener('DOMContentLoaded', function() {
             link.style.transform = 'translateY(-20px)';
         });
         
-        // Animate logo
         setTimeout(() => {
             logo.style.transition = 'all 0.5s ease';
             logo.style.opacity = '1';
             logo.style.transform = 'translateY(0)';
         }, 200);
-        
-        // Animate links with staggered delay
+
         links.forEach((link, index) => {
             setTimeout(() => {
                 link.style.transition = 'all 0.5s ease';
@@ -75,17 +67,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Call the entrance animations
     addEntranceAnimations();
 
-    // Initialize solution cards
     const solutionCards = document.querySelectorAll('.solution-card');
     const solutionBg = document.querySelector('.solution-bg');
     const solutionsSlider = document.querySelector('.solutions-slider');
     const prevArrow = document.querySelector('.prev-arrow');
     const nextArrow = document.querySelector('.next-arrow');
-    
-    // Set background images for cards (in a real implementation, these would be your actual images)
+
     const placeholderBackgrounds = [
         'linear-gradient(135deg, #2a2a2a 0%, #434343 100%)',
         'linear-gradient(135deg, #0e7490 0%, #06b6d4 100%)',
@@ -93,43 +82,35 @@ document.addEventListener('DOMContentLoaded', function() {
         'linear-gradient(135deg, #115e6e 0%, #0e7490 100%)'
     ];
     
-    // Assign placeholder backgrounds to cards
     solutionCards.forEach((card, index) => {
         const bgImage = card.getAttribute('data-bg');
     
         card.addEventListener('mouseenter', function () {
-            // 1. Show background image on the card
             card.style.backgroundImage = `url(${bgImage})`;
             card.style.backgroundSize = 'cover';
             card.style.backgroundPosition = 'center';
-    
-            // 2. Update the section background as well
+
             solutionBg.style.backgroundImage = `url(${bgImage})`;
             solutionBg.style.opacity = '0.15';
-    
-            // Optional: enhance readability
+
             card.querySelector('h3').style.color = '#fff';
             const para = card.querySelector('p');
             if (para) para.style.color = '#fff';
         });
     
         card.addEventListener('mouseleave', function () {
-            // 1. Clear card background
             card.style.backgroundImage = '';
-    
-            // 2. Fade out section background
+
             solutionBg.style.opacity = '0';
-    
-            // Reset text color
+
             card.querySelector('h3').style.color = '';
             const para = card.querySelector('p');
             if (para) para.style.color = '';
         });
     });
     
-    // Slider Navigation
     let scrollAmount = 0;
-    const cardWidth = 300; // Approximate width of each card including margins
+    const cardWidth = 300; 
     
     nextArrow.addEventListener('click', function() {
         scrollAmount += cardWidth;
@@ -152,8 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
             behavior: 'smooth'
         });
     });
-    
-    // Animate features on scroll
+
     const featureItems = document.querySelectorAll('.feature-item');
     
     function checkIfInView() {
@@ -165,7 +145,6 @@ document.addEventListener('DOMContentLoaded', function() {
             );
             
             if (isInView && !item.classList.contains('animate')) {
-                // Add delay based on index
                 setTimeout(() => {
                     item.classList.add('animate');
                 }, index * 150);
@@ -173,15 +152,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Initial check on load
     checkIfInView();
-    
-    // Check on scroll
+
     window.addEventListener('scroll', function() {
         checkIfInView();
     });
-    
-    // Add smooth scrolling for anchor links
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -201,8 +177,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    
-    // Hero background parallax effect
+
     const heroSection = document.querySelector('.hero');
     const heroBg = document.querySelector('.hero-bg');
     

@@ -1,4 +1,4 @@
-/* About Us Page Styles - Add to your existing style.css */
+/* About Us Page Styles */
 
 /* About Hero Section */
 .about-hero {
@@ -34,7 +34,7 @@
     text-align: center;
     margin: 0 auto;
     color: #e66a22;
-    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.5); /* Optional: add shadow for better readability */
+    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.5);
 }
 
 .about-hero h1 {

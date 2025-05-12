@@ -1,213 +1,166 @@
-// Solutions page specific JavaScript - Include after loading script.js
-
 document.addEventListener('DOMContentLoaded', function() {
-    // Animation on scroll
-    const animatedElements = document.querySelectorAll('[data-animate]');
-    
-    function checkScroll() {
-        animatedElements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            const delay = element.getAttribute('data-delay') || 0;
-            
-            if (elementTop < windowHeight * 0.85) {
-                setTimeout(() => {
-                    element.classList.add('in-view');
-                }, delay);
+    const animateElements = document.querySelectorAll('[data-animate]');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                observer.unobserve(entry.target);
             }
         });
+    }, { threshold: 0.1 });
+
+    animateElements.forEach(element => {
+        observer.observe(element);
+    });
+
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
     }
+
+    const manufacturerFilters = document.querySelectorAll('.manufacturer-filter');
     
-    // Initial check
-    checkScroll();
-    
-    // Check on scroll
-    window.addEventListener('scroll', checkScroll);
-    
-    // Healthcare Tabs functionality
+    manufacturerFilters.forEach(filter => {
+        filter.addEventListener('change', function() {
+            const category = this.getAttribute('data-category');
+            const selectedManufacturer = this.value;
+            const productCards = document.querySelectorAll(`#${category} .product-card`);
+            
+            productCards.forEach(card => {
+                const cardManufacturer = card.getAttribute('data-manufacturer');
+                
+                if (selectedManufacturer === 'all' || cardManufacturer === selectedManufacturer) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+
     const tabButtons = document.querySelectorAll('.tab-btn');
     const tabPanes = document.querySelectorAll('.tab-pane');
     
     tabButtons.forEach(button => {
         button.addEventListener('click', function() {
-            const tabsContainer = this.closest('.solution-tabs') || document;
-            
-            // Remove active class from all buttons and panes in this container
-            tabsContainer.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            
-            tabsContainer.querySelectorAll('.tab-pane').forEach(pane => {
-                pane.classList.remove('active');
-            });
-            
-            // Add active class to current button
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tabPanes.forEach(pane => pane.classList.remove('active'));
+
             this.classList.add('active');
-            
-            // Show corresponding tab pane
-            const targetTab = this.getAttribute('data-tab');
-            document.getElementById(targetTab).classList.add('active');
+            const tabId = this.getAttribute('data-tab');
+            document.getElementById(tabId).classList.add('active');
         });
     });
-    
-    // Smooth scroll for anchor links
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
             
             const targetId = this.getAttribute('href');
+            
             if (targetId === '#') return;
             
             const targetElement = document.querySelector(targetId);
+            
             if (targetElement) {
-                const navbarHeight = document.querySelector('.navbar').offsetHeight;
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 20;
+                const headerHeight = document.querySelector('.navbar').offsetHeight;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
                 
                 window.scrollTo({
-                    top: targetPosition,
+                    top: targetPosition - headerHeight - 20,
                     behavior: 'smooth'
                 });
+
+                const hamburger = document.querySelector('.hamburger');
+                const navLinks = document.querySelector('.nav-links');
                 
-                // Update URL hash without scrolling
-                history.pushState(null, null, targetId);
+                if (hamburger && hamburger.classList.contains('active')) {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                }
             }
         });
     });
+
+    const searchInput = document.getElementById('component-search');
     
-    // Check if URL has hash on load and scroll to it
-    if (window.location.hash) {
-        const targetElement = document.querySelector(window.location.hash);
-        if (targetElement) {
-            setTimeout(() => {
-                const navbarHeight = document.querySelector('.navbar').offsetHeight;
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 20;
+    if (searchInput) {
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                const searchTerm = this.value.toLowerCase().trim();
                 
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }, 500); // Small delay to ensure page is fully loaded
-        }
-    }
-    
-    // Agriculture Carousel functionality
-    const carouselSlides = document.querySelectorAll('.carousel-slide');
-    const dots = document.querySelectorAll('.carousel-dots .dot');
-    const prevArrow = document.querySelector('.carousel-arrow.prev');
-    const nextArrow = document.querySelector('.carousel-arrow.next');
-    let currentSlide = 0;
-    
-    if (carouselSlides.length > 0) {
-        function showSlide(index) {
-            // Hide all slides
-            carouselSlides.forEach(slide => slide.classList.remove('active'));
-            dots.forEach(dot => dot.classList.remove('active'));
-            
-            // Show selected slide
-            carouselSlides[index].classList.add('active');
-            dots[index].classList.add('active');
-            currentSlide = index;
-        }
-        
-        // Previous button
-        if (prevArrow) {
-            prevArrow.addEventListener('click', function() {
-                let newIndex = currentSlide - 1;
-                if (newIndex < 0) newIndex = carouselSlides.length - 1;
-                showSlide(newIndex);
-            });
-        }
-        
-        // Next button
-        if (nextArrow) {
-            nextArrow.addEventListener('click', function() {
-                let newIndex = currentSlide + 1;
-                if (newIndex >= carouselSlides.length) newIndex = 0;
-                showSlide(newIndex);
-            });
-        }
-        
-        // Dot navigation
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', function() {
-                showSlide(index);
-            });
-        });
-        
-        // Auto-advance slides
-        let slideInterval = setInterval(() => {
-            let newIndex = currentSlide + 1;
-            if (newIndex >= carouselSlides.length) newIndex = 0;
-            showSlide(newIndex);
-        }, 5000);
-        
-        // Pause auto-advance on hover
-        const carouselContainer = document.querySelector('.carousel-container');
-        if (carouselContainer) {
-            carouselContainer.addEventListener('mouseenter', () => {
-                clearInterval(slideInterval);
-            });
-            
-            carouselContainer.addEventListener('mouseleave', () => {
-                slideInterval = setInterval(() => {
-                    let newIndex = currentSlide + 1;
-                    if (newIndex >= carouselSlides.length) newIndex = 0;
-                    showSlide(newIndex);
-                }, 5000);
-            });
-        }
-    }
-    
-    // Highlight active nav link based on section in view
-    const sectionIds = ['fintech', 'healthcare', 'industrial', 'supply-chain', 'agriculture'];
-    const sections = sectionIds.map(id => document.getElementById(id));
-    const navLinks = document.querySelectorAll('.industry-pill');
-    
-    function highlightNavLink() {
-        let scrollPosition = window.scrollY + window.innerHeight / 3;
-        
-        sections.forEach((section, index) => {
-            if (section) {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.offsetHeight;
+                if (searchTerm === '') return;
                 
-                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${sectionIds[index]}`) {
-                            link.classList.add('active');
+                const allProducts = document.querySelectorAll('.product-card');
+                let hasMatch = false;
+                
+                allProducts.forEach(product => {
+                    const productName = product.querySelector('h3').textContent.toLowerCase();
+                    const productDesc = product.querySelector('.product-description').textContent.toLowerCase();
+                    const partNumber = product.querySelector('.part-number').textContent.toLowerCase();
+
+                    product.classList.remove('search-match');
+                    
+                    if (productName.includes(searchTerm) || 
+                        productDesc.includes(searchTerm) || 
+                        partNumber.includes(searchTerm)) {
+                        
+                        product.classList.add('search-match');
+                        hasMatch = true;
+
+                        if (!window.firstMatchFound) {
+                            window.firstMatchFound = true;
+
+                            let parentSection = product.closest('.product-category');
+                            
+                            if (parentSection) {
+                                const headerHeight = document.querySelector('.navbar').offsetHeight;
+                                const targetPosition = parentSection.getBoundingClientRect().top + window.pageYOffset;
+                                
+                                window.scrollTo({
+                                    top: targetPosition - headerHeight - 20,
+                                    behavior: 'smooth'
+                                });
+                            }
                         }
-                    });
+                    }
+                });
+
+                window.setTimeout(() => {
+                    window.firstMatchFound = false;
+                }, 1000);
+
+                const searchMessage = document.querySelector('.search-message');
+                
+                if (!hasMatch) {
+                    if (!searchMessage) {
+                        const message = document.createElement('div');
+                        message.className = 'search-message';
+                        message.textContent = `No products found matching "${searchTerm}". Please try another search term or contact us for assistance.`;
+                        
+                        searchInput.parentNode.insertAdjacentElement('afterend', message);
+                    }
+                } else {
+                    if (searchMessage) {
+                        searchMessage.remove();
+                    }
                 }
             }
         });
     }
-    
-    // Initial check and add scroll listener
-    highlightNavLink();
-    window.addEventListener('scroll', highlightNavLink);
-    
-    // Add active class to industry pills
-    document.querySelectorAll('.industry-pill').forEach(pill => {
-        pill.addEventListener('click', function() {
-            document.querySelectorAll('.industry-pill').forEach(p => {
-                p.classList.remove('active');
-            });
-            this.classList.add('active');
-        });
+
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 100) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
     });
-    
-    // Add hover effects for solutions
-    const solutionCards = document.querySelectorAll('.solution-card');
-    
-    solutionCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.classList.add('hover');
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.classList.remove('hover');
-        });
-    });
-    
 });
